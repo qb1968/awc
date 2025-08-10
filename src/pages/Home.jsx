@@ -1,5 +1,6 @@
 import heroImage from "../assets/me.avif";
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [modalService, setModalService] = useState(null);
@@ -127,12 +128,12 @@ export default function Home() {
               Professional web solutions crafted to bring your ideas to life and
               grow your business online.
             </p>
-            <a
-              href="/book-online"
+            <Link
+              to="/book-online"
               className="inline-block bg-blue-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-cyan-500 hover:shadow-cyan-500 transition"
             >
               Book a Free Consultation
-            </a>
+            </Link>
           </div>
 
           {/* Right Image */}

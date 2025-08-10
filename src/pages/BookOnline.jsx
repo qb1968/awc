@@ -2,7 +2,7 @@ export default function BookOnline() {
   return (
     <div className="container mx-auto p-8">
       <h2 className="text-3xl font-semibold mb-4">Book a Consultation</h2>
-      <p className="text-gray-700 mb-6">
+      <p className="text-White mb-6">
         Choose a time that works best for you. The calendar below is updated in
         real-time.
       </p>

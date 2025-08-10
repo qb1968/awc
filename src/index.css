@@ -23,9 +23,9 @@ h1, h2, h3 {
 }
 
 a {
-  @apply text-cyan-400 hover:text-cyan-500;
+  @apply text-cyan-400 hover:text-white;
 }
 
 button.primary {
-  @apply bg-blue-500 hover:bg-cyan-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition;
+  @apply bg-blue-500 text-white hover:bg-cyan-500  font-semibold px-6 py-3 rounded-full shadow-lg transition;
 }
