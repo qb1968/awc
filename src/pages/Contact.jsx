@@ -212,6 +212,7 @@ export default function Contact() {
               placeholder="Write your message here..."
               required
             ></textarea>
+            <input type="hidden" name="_redirect" value="" />
             {errors.message && (
               <p className="text-red-600 mt-1 text-sm">{errors.message}</p>
             )}
