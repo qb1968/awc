@@ -343,7 +343,7 @@ export default function Home() {
 
       {/* Floating Contact Button */}
       <a
-        href="/contact-us"
+        href="/contact"
         className="fixed bottom-8 left-3 z-50 bg-blue-500 text-white rounded-full shadow-lg hover:scale-105 hover:shadow-cyan-500 transition-all duration-300 px-5 py-3 font-semibold flex items-center gap-2"
       >
         <svg
