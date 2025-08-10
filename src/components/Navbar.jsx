@@ -31,20 +31,20 @@ export default function Navbar() {
 
         {/* Menu links */}
         <div
-          className={`flex-col md:flex-row md:flex items-center space-y-4 md:space-y-0 md:space-x-6 absolute md:static bg-gray-900 md:bg-transparent left-0 w-full md:w-auto top-16 md:top-auto px-6 md:px-0 pb-6 md:pb-0 transition-all duration-300 ease-in-out ${
+          className={`text-lg flex-col md:flex-row md:flex items-center space-y-4 md:space-y-0 md:space-x-6 absolute md:static bg-gray-900 md:bg-transparent left-0 w-full md:w-auto top-16 md:top-auto px-6 md:px-0 pb-6 md:pb-0 transition-all duration-300 ease-in-out ${
             isOpen ? "flex" : "hidden"
           }`}
         >
           <Link
             to="/"
-            className="hover:text-cyan-400 transition"
+            className="text-blue-300 hover:text-cyan-400 transition"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/why-choose-us"
-            className="hover:text-cyan-400 transition"
+            className="text-blue-300 hover:text-cyan-400 transition"
             onClick={() => setIsOpen(false)}
           >
             Why Choose Us
@@ -52,21 +52,21 @@ export default function Navbar() {
           <HashLink
             smooth
             to="/#services"
-            className="hover:text-cyan-400 transition"
+            className="text-blue-300 hover:text-cyan-400 transition"
             onClick={() => setIsOpen(false)}
           >
             Our Services
           </HashLink>
           <Link
             to="/contact"
-            className="hover:text-cyan-400 transition"
+            className="text-blue-300 hover:text-cyan-400 transition"
             onClick={() => setIsOpen(false)}
           >
             Contact
           </Link>
           <Link
             to="/book-online"
-            className="hover:text-cyan-400 transition"
+            className="text-blue-300 hover:text-cyan-400 transition"
             onClick={() => setIsOpen(false)}
           >
             Book Online

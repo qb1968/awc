@@ -193,7 +193,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <button
+        {/* <button
           onClick={() => setChatOpen(true)}
           className=" mt-20 bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition flex items-center space-x-2"
           aria-label="Open live chat"
@@ -210,9 +210,9 @@ export default function Contact() {
             <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
           </svg>
           <span className="hidden sm:inline">Live Chat</span>
-        </button>
+        </button> */}
 
-        {/* Live Chat Modal */}
+        {/* Live Chat Modal
         {chatOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
@@ -247,7 +247,7 @@ export default function Contact() {
               </p>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );
