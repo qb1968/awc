@@ -13,11 +13,9 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
 
-  const FORMSPARK_ENDPOINT = "https://submit.formspark.io/JN4cUhwpN";
+  const FORMSPARK_ENDPOINT = "https://submit-form.com/JN4cUhwpN";
 
-  useEffect(() => {
-    document.title = "Contact Us | Allison Web Consultants";
-  }, []);
+  
 
   function validate() {
     const newErrors = {};
@@ -47,37 +45,40 @@ export default function Contact() {
     setErrors((prev) => ({ ...prev, [e.target.name]: null }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitError(null);
+ const handleSubmit = async (e) => {
+   e.preventDefault();
+   setSubmitError(null);
 
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+   const validationErrors = validate();
+   if (Object.keys(validationErrors).length > 0) {
+     setErrors(validationErrors);
+     return;
+   }
 
-    setIsSubmitting(true);
+   setIsSubmitting(true);
 
-    try {
-      const res = await fetch(FORMSPARK_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+   try {
+     const res = await fetch(FORMSPARK_ENDPOINT, {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify(formData),
+      //  redirect: "manual", // Prevent automatic redirect following
+     });
 
-      if (res.ok) {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        setSubmitError("Failed to send message. Please try again later.");
-      }
-    } catch {
-      setSubmitError("Network error. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+     // Treat 2xx and 3xx as success (some 3xx may be redirect)
+     if (res.status >= 200 && res.status < 400) {
+       setSubmitted(true);
+       setFormData({ name: "", email: "", phone: "", message: "" });
+     } else {
+       setSubmitError("Failed to send message. Please try again later.");
+     }
+   } catch {
+     setSubmitError("Network error. Please try again later.");
+   } finally {
+     setIsSubmitting(false);
+   }
+ };
+
 
   if (submitted) {
     return (
@@ -127,7 +128,7 @@ export default function Contact() {
               type="text"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 ${
+              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 text-black ${
                 errors.name
                   ? "border-red-500 focus:ring-red-500"
                   : "border-gray-300 focus:ring-blue-500"
@@ -153,7 +154,7 @@ export default function Contact() {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 ${
+              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 text-black ${
                 errors.email
                   ? "border-red-500 focus:ring-red-500"
                   : "border-gray-300 focus:ring-blue-500"
@@ -179,7 +180,7 @@ export default function Contact() {
               type="tel"
               value={formData.phone}
               onChange={handleChange}
-              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 ${
+              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 text-black ${
                 errors.phone
                   ? "border-red-500 focus:ring-red-500"
                   : "border-gray-300 focus:ring-blue-500"
@@ -204,7 +205,7 @@ export default function Contact() {
               rows="5"
               value={formData.message}
               onChange={handleChange}
-              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 ${
+              className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 text-black ${
                 errors.message
                   ? "border-red-500 focus:ring-red-500"
                   : "border-gray-300 focus:ring-blue-500"
