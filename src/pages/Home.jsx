@@ -169,12 +169,12 @@ export default function Home() {
             development. We specialize in mobile-first design and personalized
             business solutions. Let's bring your vision to life.
           </p>
-          <a
-            href="/why-choose-us"
+          <Link
+            to="/why-choose-us"
             className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold px-6 py-3 rounded-full shadow transition"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </section>
 
