@@ -1,8 +1,55 @@
 import heroImage from "../assets/me.avif";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export default function Home() {
   const [modalService, setModalService] = useState(null);
+
+   const clients = useMemo(
+     () => [
+       {
+         src: "/clients/Ts.PNG",
+         url: "https://www.twistedsistershair.com/",
+         alt: "Client 1",
+       },
+       {
+         src: "/clients/external-file_edited.jpg",
+         url: "",
+         alt: "Client 2",
+       },
+       {
+         src: "/clients/pig1024-2 (1).png",
+         url: "http://ncbbqhof.com",
+         alt: "Client 3",
+       },
+       {
+         src: "/clients/4.png",
+         url: "https://www.ecpt-cb.com/",
+         alt: "Client 4",
+       },
+       {
+         src: "/clients/Logo Picture.webp",
+         url: "",
+         alt: "Client 5",
+       },
+       {
+         src: "/clients/RST (1).png",
+         url: "http://thereidsvilleshowcase.com",
+         alt: "Client 6",
+       },
+       {
+         src: "/clients/LST (1).png",
+         url: "http://thelibertyshowcase.com",
+         alt: "Client 7",
+       },
+       {
+         src: "/clients/layers.jpeg",
+         url: "http://layersbymichelle.com",
+         alt: "Client 8",
+       },
+     ],
+     []
+   );
+
 
   const services = [
     {
@@ -192,7 +239,7 @@ export default function Home() {
       )}
 
       {/* Clients Section */}
-      <section className="bg-gray-900 py-20">
+      <section className="bg-gray-900 py-20 overflow-hidden">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-semibold mb-6 text-cyan-400">
             Our Clients
@@ -201,79 +248,57 @@ export default function Home() {
             See our work in action. Explore a few clients who trusted us with
             their web presence.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-center">
-            {[
-              {
-                src: "/clients/Ts.PNG",
-                url: "https://www.twistedsistershair.com/",
-                alt: "Client 1",
-              },
-              {
-                src: "/clients/external-file_edited.jpg",
-                url: "",
-                alt: "Client 2",
-              },
-              {
-                src: "/clients/pig1024-2 (1).png",
-                url: "http://ncbbqhof.com",
-                alt: "Client 3",
-              },
-              {
-                src: "/clients/4.png",
-                url: "https://www.ecpt-cb.com/",
-                alt: "Client 4",
-              },
-              {
-                src: "/clients/Logo Picture.webp",
-                url: "",
-                alt: "Client 5",
-              },
-              {
-                src: "/clients/RST (1).png",
-                url: "http://thereidsvilleshowcase.com",
-                alt: "Client 6",
-              },
-              {
-                src: "/clients/LST (1).png",
-                url: "http://thelibertyshowcase.com",
-                alt: "Client 7",
-              },
-              {
-                src: "/clients/layers.jpeg",
-                url: "http://layersbymichelle.com",
-                alt: "Client 8",
-              },
-            ].map(({ src, url, alt }, index) =>
-              url ? (
-                <a
-                  key={index}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-auto block h-40 rounded-lg shadow-lg border border-gray-700 transition-transform duration-500 hover:scale-105 hover:shadow-cyan-500 hover:border-cyan-400"
-                  aria-label={`Visit ${alt}`}
-                >
-                  <img
-                    src={src}
-                    alt={alt}
-                    className="h-full w-auto object-contain rounded-lg"
-                  />
-                </a>
-              ) : (
-                <div
-                  key={index}
-                  className="mx-auto h-40 rounded-lg shadow-lg border border-gray-700 transition-transform duration-500 hover:scale-105 hover:shadow-cyan-500 hover:border-cyan-400"
-                >
-                  <img
-                    src={src}
-                    alt={alt}
-                    className="h-full w-auto object-contain rounded-lg"
-                  />
-                </div>
-              )
-            )}
+
+          {/* Scrolling container */}
+          <div className="relative w-full overflow-hidden">
+            <div className="flex gap-6 sm:gap-8 animate-scroll hover:[animation-play-state:paused]">
+              {[...clients, ...clients].map(({ src, url, alt }, index) =>
+                url ? (
+                  <a
+                    key={index}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-lg shadow-lg border border-gray-700 transition-transform duration-500 hover:scale-105 hover:shadow-cyan-500 hover:border-cyan-400"
+                    aria-label={`Visit ${alt}`}
+                  >
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                  </a>
+                ) : (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-lg shadow-lg border border-gray-700 transition-transform duration-500 hover:scale-105 hover:shadow-cyan-500 hover:border-cyan-400"
+                  >
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                  </div>
+                )
+              )}
+            </div>
           </div>
         </div>
+
+        {/* Tailwind custom animation */}
+        <style>
+          {`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll {
+            animation: scroll 35s linear infinite;
+            display: flex;
+            width: max-content;
+          }
+        `}
+        </style>
       </section>
 
       {/* Testimonials Section */}
