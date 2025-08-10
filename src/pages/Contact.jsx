@@ -62,11 +62,10 @@ export default function Contact() {
        method: "POST",
        headers: { "Content-Type": "application/json" },
        body: JSON.stringify(formData),
-      //  redirect: "manual", // Prevent automatic redirect following
+       redirect: "manual", // prevent automatic redirect
      });
 
-     // Treat 2xx and 3xx as success (some 3xx may be redirect)
-     if (res.status >= 200 && res.status < 400) {
+     if (res.status === 200 || res.status === 302) {
        setSubmitted(true);
        setFormData({ name: "", email: "", phone: "", message: "" });
      } else {
