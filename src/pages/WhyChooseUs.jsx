@@ -92,7 +92,8 @@ export default function Hero() {
           </h1>
           <p className="text-lg sm:text-xl font-semibold max-w-xl mx-auto leading-relaxed drop-shadow-sm">
             At Allison Web Consultants, we specialize in creating stunning,
-            user-friendly websites that drive results.<br/>
+            user-friendly websites that drive results.
+            <br />
             We help businesses thrive with expert web solutions tailored to your
             goals.
           </p>
@@ -114,7 +115,7 @@ export default function Hero() {
               custom={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-800 rounded-lg p-6 shadow-lg border border-cyan-600 cursor-pointer"
+              className="bg-gray-800 rounded-lg p-6 shadow-lg border border-cyan-600 cursor-pointer hover:shadow-cyan-500"
             >
               <h3 className="text-cyan-400 text-3xl font-bold mb-3">
                 {feature.title}
